@@ -2,20 +2,22 @@
 
 Dataset Dir Structure
 
+```
 .
-├── frame_selection
+├── frame_selection/
 │   ├── dataset.csv
-│   ├── dicoms
+│   ├── dicoms/
 │   │   └── ...
-│   └── metadata
+│   └── metadata/
 │       └── ...
-├── series_selection
-│   ├── rejected
+├── series_selection/
+│   ├── rejected/
 │   │   └── ...
-│   ├── accepted
+│   ├── accepted/
 │   │   └── ...
 │   ├── accepted.csv
 │   └── rejected.csv
 ├── framerejectionfeedback.csv
 ├── imagerejectionfeedback.csv
 └── imagefeedback.csv
+```
