@@ -21,3 +21,10 @@ Dataset Dir Structure
 ├── imagerejectionfeedback.csv
 └── imagefeedback.csv
 ```
+
+
+
+TODO
+- load new frame selection and series selection, prepare sh script
+- load new rca/lca from karol
+- eval dominance by 

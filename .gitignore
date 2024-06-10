@@ -1,3 +1,6 @@
+*.pkl
+wandb/
+
 *.pth
 *.pt
 data/
