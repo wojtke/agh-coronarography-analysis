@@ -2,13 +2,15 @@ import torch
 import torch.nn as nn
 import torchvision
 
+from utils import first_conv_to_1_channel
+
 class TemporalResNet(nn.Module):
     def __init__(self):
         super(TemporalResNet, self).__init__()
         self.base_model = torchvision.models.resnet18(
             weights=torchvision.models.resnet.ResNet18_Weights.IMAGENET1K_V1
         )
-        self.base_model.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+        self.base_model = first_conv_to_1_channel(self.base_model)
         self.base_model.fc = nn.Identity()
         
         self.attention = nn.MultiheadAttention(embed_dim=512, num_heads=8, batch_first=True)
@@ -31,7 +33,7 @@ def resnet_binary():
     model = torchvision.models.resnet18(
         weights=torchvision.models.resnet.ResNet18_Weights.IMAGENET1K_V1
     )
-    model.conv1 = torch.nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    model = first_conv_to_1_channel(model)
     model.fc = torch.nn.Linear(model.fc.in_features, 2)  
     return model
 
@@ -42,7 +44,7 @@ class SiameseResNet(torch.nn.Module):
         self.base_model = torchvision.models.resnet18(
             weights=torchvision.models.resnet.ResNet18_Weights.IMAGENET1K_V1
         )
-        self.base_model.conv1 = torch.nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+        self.base_model = first_conv_to_1_channel(self.base_model)
         self.base_model.fc = nn.Identity()
         self.classifier = nn.Sequential(
             nn.Linear(512 * 2, 512),

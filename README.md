@@ -4,27 +4,20 @@ Dataset Dir Structure
 
 ```
 .
-├── frame_selection/
-│   ├── dataset.csv
-│   ├── dicoms/
-│   │   └── ...
-│   └── metadata/
-│       └── ...
-├── series_selection/
-│   ├── rejected/
-│   │   └── ...
-│   ├── accepted/
-│   │   └── ...
-│   ├── accepted.csv
-│   └── rejected.csv
+├── dicoms/
+│   ├── 12aw4ack71831bocuf5j3pz238tcmv77343.dcm etc.
+│   └── ...
+├── metadata/
+│   ├── 12aw4ack71831bocuf5j3pz238tcmv77343.json etc.
+│   └── ...
+├── frame_selection.csv
 ├── framerejectionfeedback.csv
-├── imagerejectionfeedback.csv
-└── imagefeedback.csv
+├── series_selection_accepted.csv
+├── series_selection_rejected.csv
+├── study.csv
+├── studyfeedback.csv
+├── studyrejectionfeedback.csv
+├── image.csv
+├── imagefeedback.csv
+└── imagerejectionfeedback.csv
 ```
-
-
-
-TODO
-- load new frame selection and series selection, prepare sh script
-- load new rca/lca from karol
-- eval dominance by 
